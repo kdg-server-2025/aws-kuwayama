@@ -1,16 +1,4 @@
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
-variable "ssh_key" {
-  description = "EC2 で使う SSH Key"
-  type        = string
-}
-
-# key 名は任意の名前で良い。GitHub の key と同じように作業しているPCの名前がおすすめ
-resource "aws_key_pair" "kuwayama_syoutarou_20250621" {
-  key_name   = "kuwayama_syoutarou_20250621" # ✅ 文字列を指定
-  public_key = var.ssh_key
-}
-
-
 data "aws_ami" "ubuntu" {
   most_recent = true
 
